@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>
+      Welcome to My To do List!
+    </h1>
+    <p>This is a simple website to help you accomplish your tasks </p>
+    <p>My tasks for the day are </p>
+    <hr>
+    <h1>To do list</h1>
+    <ul>
+      <div *ngFor='let todo of todos ;let i = index'>
+        <li>{{todo.name}}</li>
+        <button (click)='toogleDetails(i)'>Toogle Details</button>
+        <app-todo-details *ngIf ="todo.showDescription" [todo]='todo'(isComplete) = 'completeTodo($event,i)'></app-todo-details>
+        </div>
+    </ul>
+
+  </body>
+</html>
